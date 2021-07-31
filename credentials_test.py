@@ -41,3 +41,14 @@ class TestAccount(unittest.TestCase):
             test_account = Account("Test","user","0712345678","test@user.com") # new account
             test_account.save_account()
             self.assertEqual(len(Account.account_list),2)
+
+    def test_delete_account(self):
+            '''
+            test_delete_account to test if we can remove an account from our account list
+            '''
+            self.new_account.save_account()
+            test_account = Account("Test","user","0712345678","test@user.com") # account
+            test_account.save_account()
+
+            self.new_account.delete_account()# Deleting an account object
+            self.assertEqual(len(Account.account_list),1) 
